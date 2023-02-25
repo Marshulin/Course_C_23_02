@@ -30,3 +30,7 @@ else if(a == 7)
 {
    Console.WriteLine("Sun"); 
 }
+else
+{
+   Console.WriteLine("Error!"); 
+}
