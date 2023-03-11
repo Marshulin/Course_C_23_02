@@ -8,7 +8,7 @@ void Print(int[] arr)
     int size = arr.Length;
 
     for (int i = 0; i < size; i++)
-        Console.Write($"{arr[i]}");
+        Console.Write($" {arr[i]} ");
     Console.WriteLine();
 }
 
