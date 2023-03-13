@@ -23,13 +23,11 @@ int[] MassNums(int size)
 
 int FlatNums(int[] mass)
 {
-    int count = 0;
     int Flat = 0;
     for (int i = 0; i < mass.Length; i++)
     {
         if (mass[i] % 2 == 0)
-        Flat++;
-        count++;
+        Flat++;   
     }
     return Flat;
 }
@@ -40,4 +38,4 @@ int num = int.Parse(Console.ReadLine()!);
 int[] mass = MassNums(num);
 Print(mass);
 
-Console.WriteLine("Количество чётных в массиве: " + FlatNums(mass));
+Console.WriteLine("Количество чётных чисел в массиве: " + FlatNums(mass));
