@@ -6,7 +6,7 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
-void Print(int[,] arr)
+void Print(double[,] arr)
 	{
 	    int row = arr.GetLength(0);
 	    int column = arr.GetLength(1);
@@ -19,13 +19,14 @@ void Print(int[,] arr)
 	    }
 	}
 	
-	int[,] MassNums(int row, int column, int from, int to)
+	double[,] MassNums(int row, int column, int from, int to)
 	{
-	    int[,] arr = new int[row, column];
+	    double[,] arr = new double[row, column];
+        Random n_new = new Random();
 	
 	    for (int i = 0; i < row; i++)
 	        for (int j = 0; j < column; j++)
-	            arr[i, j] = new Random().Next(from, to);
+	            arr[i, j] = Math.Round(n_new.NextDouble() * (from + to) - from, 2);
 	    return arr;
 	}
 	
@@ -38,6 +39,6 @@ void Print(int[,] arr)
     Console.WriteLine("Введите верхнюю границу диапозона чисел массива: ");
 	int stop = int.Parse(Console.ReadLine()!);
 	
-	int[,] mass = MassNums(row_num, column_num, start, stop);
-    Console.WriteLine("Двумерный массив размером m × n, заполненный случайными вещественными числами: ");
+	double[,] mass = MassNums(row_num, column_num, start, stop);
+    Console.WriteLine("Двумерный массив размером m на n, заполненный случайными вещественными числами: ");
 	Print(mass);

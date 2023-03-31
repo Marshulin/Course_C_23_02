@@ -1,12 +1,13 @@
-﻿// Задача 4: Задайте двумерный массив. Введите элемент, и найдите
-// первое его вхождение, выведите позиции по горизонтали и
-// вертикали, или напишите, что такого элемента нет.
-// Например, такой массив:
+﻿// Задача 2: Напишите программу, которая на вход
+// принимает позиции элемента в двумерном массиве, и
+// возвращает значение этого элемента или же указание,
+// что такого элемента нет
+
+// Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
 // 8 4 2 4
-// Введенный элемент 2, результат: [1, 4]
-// Введенный элемент 6, результат: такого элемента нет.
+// 1 7 -> такого числа в массиве нет
 
 void Print(int[,] arr)
 	{
@@ -31,7 +32,7 @@ void Print(int[,] arr)
 	    return arr;
 	}
 
-string SearchNum(int[,] arr, int num)
+string SearchNum(int[,] arr, int index)
 	{
 	    int row = arr.GetLength(0);
 	    int column = arr.GetLength(1);
@@ -40,7 +41,7 @@ string SearchNum(int[,] arr, int num)
 	    for (int i = 0; i < row; i++)
 	        for (int j = 0; j < column; j++)
 	
-	            if (arr[i,j] == num)
+	            if (arr[i,j] == index)
 	             return $"[{i+1},{j+1}]";
 	    return;
 	        
@@ -54,7 +55,7 @@ string SearchNum(int[,] arr, int num)
 	
 	int[,] mass = MassNums(row_num, column_num, start, stop);
 	Print(mass);
-	int val = int.Parse(Console.ReadLine()!);
+	int index = int.Parse(Console.ReadLine()!);
 	
-	string result = SearchNum(mass, val);
+	string result = SearchNum(mass, index);
 	Console.WriteLine(result);
