@@ -22,7 +22,7 @@ void Print(int[,] arr)
 	    }
 	}
 	
-	int[,] MassNums(int row, int column, int from, int to)
+int[,] MassNums(int row, int column, int from, int to)
 	{
 	    int[,] arr = new int[row, column];
 	
@@ -32,12 +32,12 @@ void Print(int[,] arr)
 	    return arr;
 	}
 
-    bool CheckNum(int row, int column, int I, int J)
+bool CheckNum(int row, int column, int I, int J)
     {
         return I >= 0 && J >= 0 && I < row && J < column;
     }
 	
-    string SearchNum(bool check, int[,] arr, int I, int J)
+string SearchNum(bool check, int[,] arr, int I, int J)
     {
         string val = "Нет такого индекса в массиве.";
         if (check == true) val = $"По данному индексу хранится число: {arr[I - 1, J - 1]}.";
