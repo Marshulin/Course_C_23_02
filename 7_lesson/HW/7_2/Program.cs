@@ -32,30 +32,37 @@ void Print(int[,] arr)
 	    return arr;
 	}
 
-string SearchNum(int[,] arr, int index)
-	{
-	    int row = arr.GetLength(0);
-	    int column = arr.GetLength(1);
+    bool CheckNum(int row, int column, int I, int J)
+    {
+        return I >= 0 && J >= 0 && I < row && J < column;
+    }
 	
-	    
-	    for (int i = 0; i < row; i++)
-	        for (int j = 0; j < column; j++)
-	
-	            if (arr[i,j] == index)
-	             return $"[{i+1},{j+1}]";
-	    return;
-	        
-	                
-	}
-	
+    string SearchNum(bool check, int[,] arr, int I, int J)
+    {
+        string val = "Нет такого индекса в массиве.";
+        if (check == true) val = $"По данному индексу хранится число: {arr[I - 1, J - 1]}.";
+        return val;
+    }
+    Console.WriteLine("Введите m - число рядов массива: ");
 	int row_num = int.Parse(Console.ReadLine()!);
+    Console.WriteLine("Введите n - число колонок массива: ");
 	int column_num = int.Parse(Console.ReadLine()!);
+    Console.WriteLine("Введите нижнюю границу диапозона чисел массива: ");
 	int start = int.Parse(Console.ReadLine()!);
+    Console.WriteLine("Введите верхнюю границу диапозона чисел массива: ");
 	int stop = int.Parse(Console.ReadLine()!);
 	
 	int[,] mass = MassNums(row_num, column_num, start, stop);
+    Console.WriteLine("Двумерный массив, заполненный случайными числами: ");
 	Print(mass);
-	int index = int.Parse(Console.ReadLine()!);
+
+    Console.WriteLine("Введите индекс ряда: ");
+	int I = int.Parse(Console.ReadLine()!);
+    Console.WriteLine("Введите индекс колонки: ");
+	int J = int.Parse(Console.ReadLine()!);
+
+    bool check = CheckNum(row_num, column_num, I, J);
+
 	
-	string result = SearchNum(mass, index);
+	string result = SearchNum(check, mass, I, J);
 	Console.WriteLine(result);
