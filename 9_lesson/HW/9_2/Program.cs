@@ -4,12 +4,10 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8 -> 30
 
-void NumsFromTo(int M, int N)
+int SunNumsFromTo(int M, int N)
 {
-    if(M == N + 1) return;
-    NumsFromTo(M, N - 1);
-    Console.Write($"{N}, ");
-
+    if(M > N) return 0;
+    return M + SunNumsFromTo(M + 1, N);
 }
 
 Console.WriteLine("M: ");
@@ -18,4 +16,6 @@ int m = int.Parse(Console.ReadLine()!);
 Console.WriteLine("N: ");
 int n = int.Parse(Console.ReadLine()!);
 
-NumsFromTo(m, n);
+Console.WriteLine("суммa натуральных элементов в промежутке от M до N с помощью рекурсии: ");
+Console.Write(SunNumsFromTo(m, n));
+

@@ -12,6 +12,6 @@ int Expon(int A, int B)
 Console.WriteLine("A: ");
 int a = int.Parse(Console.ReadLine()!);
 Console.WriteLine("B: ");
-int b = int.Parse(Console.ReadLine()!);
+int a = int.Parse(Console.ReadLine()!);
 
 Console.Write(Expon(a, b));
